@@ -1,0 +1,14 @@
+<?php
+
+$handle = fopen ("php://stdin","r");
+fscanf($handle,"%d",$N);
+
+if($N%2 >= 1 || $N > 5 && $N < 21) {
+    echo "Weird"; 
+} 
+
+else if($N > 1 && $N < 6 || $N > 20) {
+    echo "Not Weird";
+}     
+
+?>

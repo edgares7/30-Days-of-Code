@@ -1,0 +1,42 @@
+<?php
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+$su = fopen("php://stdin", "r");
+fscanf($su, "%d", $n);
+$arr = array();
+for($i=0; $i<200000;$i++)
+{
+    $arr[] = explode(" ",trim(fgets($su)));
+}
+$namenum = array();
+$onlyname = array();
+foreach($arr as $ar)
+{
+    $name = $ar[0];
+    $number = $ar[1];
+    if(count($ar)==2)
+    {
+        $namenum[$ar[0]] = $ar[1];
+    }
+    if(count($ar)==1)
+    {
+        if($ar[0] != null)
+        { 
+            $onlyname[] = $ar[0];
+        }
+    }
+}
+foreach($onlyname as $on)
+{
+    if(array_key_exists($on,$namenum))
+    {
+        $keyvalue = $namenum[$on];
+        echo $on."=".$keyvalue."\n";
+    }
+    else
+        {
+        echo "Not found\n";
+    }
+}
+//print_r($arr);
+?>
